@@ -1,0 +1,71 @@
+#!/bin/sh
+CFGPATH="@ETCPATH@/netcfg"
+
+[ -d "$CFGPATH" ] || exit 0
+
+# configure interfaces
+for IFPATH in /sys/class/net/*; do
+	[ "$IFPATH" == "/sys/class/net/lo" ] && continue
+
+	IF=`basename $IFPATH`
+	CFGFILE="$CFGPATH/$IF"
+
+	[ -f "$CFGFILE" ] || continue
+
+	ip link set dev "$IF" down
+
+	while read LINE;
+	do
+		trimmed=`echo -- $LINE`
+		[ ! -z "$trimmed" ] || continue
+		set $trimmed
+
+		case "$1" in
+		address|addr|ip|ip6|ipv6)
+			shift
+			ip address add $@ dev "$IF"
+			;;
+		arp|multicast|mtu)
+			ip link set dev "$IF" $@
+			;;
+		offload)
+			shift
+			ethtool -K "$IF" $@
+			;;
+		*)
+			;;
+		esac
+	done < "$CFGFILE"
+done
+
+# configure static routs
+if [ -f "$CFGPATH/routes" ]; then
+	while read LINE;
+	do
+		trimmed=`echo -- $LINE`
+		[ ! -z "$trimmed" ] || continue
+		set $trimmed
+
+		case "$1" in
+		route)
+			shift
+			ip route add $@
+			;;
+		rule)
+			shift
+			ip rule add $@
+			;;
+		*)
+			;;
+		esac
+	done < "$CFGFILE"
+fi
+
+# activate interfaces
+for IFPATH in /sys/class/net/*; do
+	[ "$IFPATH" == "/sys/class/net/lo" ] && continue
+
+	IF=`basename $IFPATH`
+
+	[ ! -f "$CFGPATH/$IF" ] || ip link set dev "$IF" up
+done

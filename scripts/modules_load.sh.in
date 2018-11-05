@@ -1,0 +1,21 @@
+#!/bin/sh
+MODLIST="@ETCPATH@/modules"
+
+if [ ! -f "$MODLIST" ]; then
+	exit 0
+fi
+
+while read LINE;
+do
+	trimmed=`echo -- $LINE`
+	[ ! -z "$trimmed" ] || continue
+	set $trimmed
+
+	case "$1" in
+	\#*)
+		;;
+	*)
+		modprobe "$1"
+		;;
+	esac
+done < "$MODLIST"

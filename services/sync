@@ -1,0 +1,6 @@
+description sync
+exec sync
+type wait
+target %0
+after sigkill sigterm
+before reboot shutdown
