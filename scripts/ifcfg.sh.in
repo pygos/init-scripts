@@ -5,7 +5,7 @@ CFGPATH="@ETCPATH@/netcfg"
 
 # configure interfaces
 for IFPATH in /sys/class/net/*; do
-	[ "$IFPATH" == "/sys/class/net/lo" ] && continue
+	[ "$IFPATH" = "/sys/class/net/lo" ] && continue
 
 	IF=`basename $IFPATH`
 	CFGFILE="$CFGPATH/$IF"
@@ -63,7 +63,7 @@ fi
 
 # activate interfaces
 for IFPATH in /sys/class/net/*; do
-	[ "$IFPATH" == "/sys/class/net/lo" ] && continue
+	[ "$IFPATH" = "/sys/class/net/lo" ] && continue
 
 	IF=`basename $IFPATH`
 

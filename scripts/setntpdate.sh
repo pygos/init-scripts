@@ -15,9 +15,9 @@ resolve() {
 
 	if [ -x "$(command -v drill)" ]; then
 		if [ -z "$server" ]; then
-			drill "$domain" | grep "^${domain}." | cut -d$'\t' -f5
+			drill "$domain" | grep "^$domain." | cut -d$'\t' -f5
 		else
-			drill "@$server" "$domain" | grep "^${domain}." |\
+			drill "@$server" "$domain" | grep "^$domain." |\
 				cut -d$'\t' -f5
 		fi
 		return $?

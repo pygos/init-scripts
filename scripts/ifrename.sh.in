@@ -7,7 +7,7 @@ TMPPATH="/tmp/ifrename"
 mkdir -p "$TMPPATH"
 
 for IFPATH in /sys/class/net/*; do
-	[ "$IFPATH" == "/sys/class/net/lo" ] && continue
+	[ "$IFPATH" = "/sys/class/net/lo" ] && continue
 
 	IF=`basename $IFPATH`
 	MAC=`cat $IFPATH/address`
