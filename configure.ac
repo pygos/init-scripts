@@ -50,4 +50,13 @@ AC_ARG_ENABLE([swclock],
 	esac],
 	[AM_CONDITIONAL([SWCLOCK], [false])])
 
+AC_ARG_ENABLE([dhcpclient],
+	[AS_HELP_STRING([--enable-dhcpclient], [Enable DHCP client])],
+	[case "${enableval}" in
+	yes) AM_CONDITIONAL([DHCPCLIENT], [true]) ;;
+	no)  AM_CONDITIONAL([DHCPCLIENT], [false]) ;;
+	*) AC_MSG_ERROR([bad value ${enableval} for --enable-dhcpclient]) ;;
+	esac],
+	[AM_CONDITIONAL([DHCPCLIENT], [false])])
+
 AC_OUTPUT([Makefile])

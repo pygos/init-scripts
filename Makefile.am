@@ -40,6 +40,9 @@ install-data-local:
 	$(LN_S) $(TEMPLATEDIR)/tmpfsrun $(DESTDIR)$(SVCDIR)/tmpfsrun
 	$(LN_S) $(TEMPLATEDIR)/tmpfsvar $(DESTDIR)$(SVCDIR)/tmpfsvar
 	$(LN_S) $(TEMPLATEDIR)/gcrond $(DESTDIR)$(SVCDIR)/gcrond
+if DHCPCLIENT
+	$(LN_S) $(TEMPLATEDIR)/dhcpcdmaster $(DESTDIR)$(SVCDIR)/dhcpcdmaster
+endif
 if SWCLOCK
 	$(LN_S) $(TEMPLATEDIR)/swclock $(DESTDIR)$(SVCDIR)/swclock
 	$(LN_S) $(TEMPLATEDIR)/swclocksave $(DESTDIR)$(SVCDIR)/swclocksave@reboot
