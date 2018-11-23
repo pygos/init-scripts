@@ -7,3 +7,6 @@ service configuration and further, available services.
 
 See [docs/network.md](docs/network.md) for a description on how to do static
 network configuration with the provided script and service.
+
+See [docs/swclock.md](docs/swclock.md) for a description on the software pseudo
+RTC implementation for systems that do not have a hardware real time clock.

@@ -81,3 +81,14 @@ follows is passed on to `ip route add` or `ip rule add` respectively.
 
 An additional service is provided that restores the nft rule set from
 `/etc/nftables.rules`.
+
+
+# DHCP based network configuration
+
+If the configure option `--enable-dhcpclient` is set, two services are added.
+The service `dhpcdmaster` launches a global dhcpcd instance.
+
+For each port that should be configured via DHCP, the service `dhcpcd` needs
+to be enabled manually with the port name as argument. The service the runs
+after the master service and sends a signal to the master to operate on that
+port.
