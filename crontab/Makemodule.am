@@ -1,2 +1,6 @@
 crondir = @GCRONDIR@
-cron_DATA = crontab/swclock
+cron_DATA =
+
+if SWCLOCK
+cron_DATA += crontab/swclock
+endif

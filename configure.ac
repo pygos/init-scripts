@@ -41,4 +41,13 @@ AC_CONFIG_FILES([scripts/modules_load.sh])
 
 AC_CONFIG_FILES([crontab/swclock])
 
+AC_ARG_ENABLE([swclock],
+	[AS_HELP_STRING([--enable-swclock], [Enable software pseudo RTC])],
+	[case "${enableval}" in
+	yes) AM_CONDITIONAL([SWCLOCK], [true]) ;;
+	no)  AM_CONDITIONAL([SWCLOCK], [false]) ;;
+	*) AC_MSG_ERROR([bad value ${enableval} for --enable-swclock]) ;;
+	esac],
+	[AM_CONDITIONAL([SWCLOCK], [false])])
+
 AC_OUTPUT([Makefile])
