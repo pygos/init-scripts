@@ -30,4 +30,5 @@ services/sysfs
 services/mountusr
 services/tmpfsvar
 crontab/swclock
+etc/40-ntpsetdate
 .#*

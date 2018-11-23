@@ -8,6 +8,14 @@ helperdir = @SCRIPTDIR@
 helper_PROGRAMS =
 helper_SCRIPTS =
 
+dhcpcddir = @DHCPCDHOOKDIR@
+
+if SWCLOCK
+if DHCPCLIENT
+dhcpcd_DATA = etc/40-ntpsetdate
+endif
+endif
+
 include scripts/Makemodule.am
 include services/Makemodule.am
 include crontab/Makemodule.am

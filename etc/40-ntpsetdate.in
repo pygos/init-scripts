@@ -1,0 +1,7 @@
+case "$reason" in
+BOUND*)
+	@SCRIPTDIR@/setntpdate.sh
+	;;
+*)
+	;;
+esac

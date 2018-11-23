@@ -12,6 +12,7 @@ AC_DEFINE_DIR(SVCDIR, sysconfdir/init.d, [Startup service directory])
 AC_DEFINE_DIR(GCRONDIR, sysconfdir/crontab.d, [Cron service directory])
 AC_DEFINE_DIR(TEMPLATEDIR, datadir/init, [Service template directory])
 AC_DEFINE_DIR(SCRIPTDIR, libexecdir/init, [Helper script directory])
+AC_DEFINE_DIR(DHCPCDHOOKDIR, libexecdir/dhcpcd-hooks, [DHCPCD hook directory])
 
 AC_DEFINE_DIR(SBINPATH, sbindir, [Fully evaluated sbin directory])
 AC_DEFINE_DIR(ETCPATH, sysconfdir, [Fulle evaluated etc directory])
@@ -40,6 +41,7 @@ AC_CONFIG_FILES([scripts/ifcfg.sh])
 AC_CONFIG_FILES([scripts/modules_load.sh])
 
 AC_CONFIG_FILES([crontab/swclock])
+AC_CONFIG_FILES([etc/40-ntpsetdate])
 
 AC_ARG_ENABLE([swclock],
 	[AS_HELP_STRING([--enable-swclock], [Enable software pseudo RTC])],
