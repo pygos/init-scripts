@@ -9,7 +9,7 @@ AC_PROG_MKDIR_P
 AC_PROG_LN_S
 
 AC_DEFINE_DIR(SVCDIR, sysconfdir/init.d, [Startup service directory])
-AC_DEFINE_DIR(GCRONDIR, sysconfdir/gcron.d, [Cron service directory])
+AC_DEFINE_DIR(GCRONDIR, sysconfdir/crontab.d, [Cron service directory])
 AC_DEFINE_DIR(TEMPLATEDIR, datadir/init, [Service template directory])
 AC_DEFINE_DIR(SCRIPTDIR, libexecdir/init, [Helper script directory])
 
@@ -29,16 +29,16 @@ AC_CONFIG_FILES([services/modules])
 AC_CONFIG_FILES([services/hostapd])
 AC_CONFIG_FILES([services/swclock])
 AC_CONFIG_FILES([services/swclocksave])
-AC_CONFIG_FILES([services/swclocksave.gcron])
 AC_CONFIG_FILES([services/nft])
 AC_CONFIG_FILES([services/sshd])
 AC_CONFIG_FILES([services/sshd_keygen])
 AC_CONFIG_FILES([services/mountusr])
-AC_CONFIG_FILES([services/ntpsetdate.gcron])
 AC_CONFIG_FILES([services/tmpfsvar])
 AC_CONFIG_FILES([scripts/devfs.sh])
 AC_CONFIG_FILES([scripts/ifrename.sh])
 AC_CONFIG_FILES([scripts/ifcfg.sh])
 AC_CONFIG_FILES([scripts/modules_load.sh])
+
+AC_CONFIG_FILES([crontab/swclock])
 
 AC_OUTPUT([Makefile])

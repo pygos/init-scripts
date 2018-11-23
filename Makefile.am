@@ -10,6 +10,7 @@ helper_SCRIPTS =
 
 include scripts/Makemodule.am
 include services/Makemodule.am
+include crontab/Makemodule.am
 
 install-data-local:
 	$(MKDIR_P) $(DESTDIR)$(SVCDIR)
@@ -38,5 +39,4 @@ install-data-local:
 	$(LN_S) $(TEMPLATEDIR)/mountusr $(DESTDIR)$(SVCDIR)/mountusr
 	$(LN_S) $(TEMPLATEDIR)/tmpfsrun $(DESTDIR)$(SVCDIR)/tmpfsrun
 	$(LN_S) $(TEMPLATEDIR)/tmpfsvar $(DESTDIR)$(SVCDIR)/tmpfsvar
-	$(MKDIR_P) $(DESTDIR)$(GCRONDIR)
 	$(LN_S) $(TEMPLATEDIR)/gcrond $(DESTDIR)$(SVCDIR)/gcrond

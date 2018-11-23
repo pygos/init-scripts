@@ -1,0 +1,2 @@
+5 */4 * * * @SCRIPTDIR@/setntpdate.sh > /dev/null
+@hourly date --utc +%%m%%d%%H%%M%%Y.%%S > @STATEFILESPATH@/swclock

@@ -26,9 +26,8 @@ services/sshd
 services/sshd_keygen
 services/swclock
 services/swclocksave
-services/swclocksave.gcron
 services/sysfs
 services/mountusr
-services/ntpsetdate.gcron
 services/tmpfsvar
+crontab/swclock
 .#*
