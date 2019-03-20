@@ -1,10 +1,10 @@
 description "DHCP client - master service"
-type wait
+type respawn limit 5
 target boot
 after network
 tty /dev/null
 
 exec {
 	mkdir -p /var/db/dhcpcd
-	dhcpcd --inactive
+	dhcpcd --inactive --nobackground
 }

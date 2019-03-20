@@ -1,6 +1,6 @@
-description "start nginx web server"
-type once
+description "nginx web server"
+type respawn limit 10
 target boot
 after network
 tty /dev/null
-exec nginx
+exec nginx -g "daemon off;"
