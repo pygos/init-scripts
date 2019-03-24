@@ -29,6 +29,7 @@ services/swclocksave
 services/sysfs
 services/mountusr
 services/tmpfsvar
+services/dhcpcd
 crontab/swclock
 etc/40-ntpsetdate
 .#*

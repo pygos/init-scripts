@@ -4,4 +4,7 @@ target boot
 after dhcpcdmaster network
 
 tty /dev/null
-exec dhcpcd -n %0
+exec {
+	"@SCRIPTDIR@/waitfile" 5 200 /run/dhcpcd.sock /run/dhcpcd.pid
+	dhcpcd -n %0
+}
