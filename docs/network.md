@@ -34,46 +34,12 @@ Extension cards or external network adapters should be given a different prefix
 to avoid changes in the order as they come and go.
 
 
-## Interface Configuration
+## Static Interface and Route Configuration
 
-After interface renaming, for each network interface, the configuration path is
-scanned for files with the same name as the interface.
-
-Each successfully found configuration file is processed line by line, top to
-bottom. Each line may contain a keyword, followed by multiple arguments.
-
-The following keywords can be used to add IPv4 or IPv6 network addresses to
-an interface:
-
- * address
- * addr
- * ip
- * ip6
- * ipv6
-
-Those commands are expected to be followed by an IPv4 or IPv6 address and
-network mask.
-
-
-Furthermore, the following commands can be used for configuring interface
-parameters:
-
- * `arp {on|off}`
- * `multicast {on|off}`
- * `mtu <value>`
- * `offload [rx {on|off}] [tx {on|off}] [sg {on|off}] [tso {on|off}]`
- * `offload [gso {on|off}] [gro {on|off}] [lro {on|off}] [rxvlan {on|off}]`
- * `offload [txvlan {on|off}] [ntuple {on|off}] [rxhash {on|off}]`
- * `offload [ufo {on|off}]`
-
-
-## Route Configuration
-
-After interface configuration is done, routes and rules are restored from a
-file named `routes` in the same configuration path.
-
-The file may contain lines starting with `route` or `rule`. Everything that
-follows is passed on to `ip route add` or `ip rule add` respectively.
+After interface renaming, an iproute2 batch script `/etc/netcfg/static` is
+executed with the `-force` option is set, i.e. it will plough throug the
+entire script without aborting, but the service will be marked as having
+failed if any of the batch lines fail.
 
 
 ## Net Filter Tables

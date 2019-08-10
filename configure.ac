@@ -38,7 +38,6 @@ AC_CONFIG_FILES([services/tmpfsvar])
 AC_CONFIG_FILES([services/dhcpcd])
 AC_CONFIG_FILES([scripts/devfs.sh])
 AC_CONFIG_FILES([scripts/ifrename.sh])
-AC_CONFIG_FILES([scripts/ifcfg.sh])
 AC_CONFIG_FILES([scripts/modules_load.sh])
 
 AC_CONFIG_FILES([crontab/swclock])

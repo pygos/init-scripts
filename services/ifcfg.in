@@ -3,5 +3,4 @@ type wait
 target boot
 after sysinit ifrename
 before network
-
-exec "@SCRIPTDIR@/ifcfg.sh"
+exec ip -force -batch "@ETCPATH@/netcfg/static"

@@ -9,7 +9,6 @@ install-sh
 missing
 reboot
 scripts/devfs.sh
-scripts/ifcfg.sh
 scripts/ifrename.sh
 scripts/modules_load.sh
 services/devfs
