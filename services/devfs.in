@@ -3,4 +3,20 @@ type wait
 target boot
 after procfs sysfs
 before vfs
-exec "@SCRIPTDIR@/devfs.sh"
+exec {
+	mount -t devtmpfs none /dev
+
+	ln -snf /proc/self/fd /dev/fd
+	ln -snf /proc/self/fd/0 /dev/stdin
+	ln -snf /proc/self/fd/1 /dev/stdout
+	ln -snf /proc/self/fd/2 /dev/stderr
+	ln -snf /proc/kcore /dev/core
+
+	mkdir -p /dev/mqueue -m 1777
+	mkdir -p /dev/pts -m 0755
+	mkdir -p /dev/shm -m 1777
+
+	"@SCRIPTDIR@/trymount.sh" /dev/mqueue mqueue noexec,nosuid,nodev
+	"@SCRIPTDIR@/trymount.sh" /dev/pts devpts noexec,nosuid,gid=5,mode=0620
+	"@SCRIPTDIR@/trymount.sh" /dev/shm tmpfs noexec,nosuid,nodev,mode=1777
+}
