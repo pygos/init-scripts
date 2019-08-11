@@ -8,7 +8,7 @@ init_DATA += services/unbound services/dnsmasq services/ifdown services/modules
 init_DATA += services/network services/hostapd services/nft services/sigkill
 init_DATA += services/sshd services/sshd_keygen services/consolefont
 init_DATA += services/nginx services/usyslogd services/klogd
-init_DATA += services/gcrond services/mountusr
+init_DATA += services/gcrond services/mountusr services/unmount
 init_DATA += services/tmpfsrun services/tmpfsvar
 
 if DHCPCLIENT
@@ -24,4 +24,4 @@ EXTRA_DIST += services/sync services/sysctl services/tmpfs
 EXTRA_DIST += services/dhcpcdmaster services/unbound
 EXTRA_DIST += services/usyslogd services/dnsmasq services/network
 EXTRA_DIST += services/consolefont services/gcrond services/nginx
-EXTRA_DIST += services/tmpfsrun
+EXTRA_DIST += services/tmpfsrun services/unmount

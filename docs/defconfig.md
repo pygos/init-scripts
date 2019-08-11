@@ -90,6 +90,8 @@ For the shutdown and reboot targets, the following services are executed:
  * sigterm - send the SIGTERM signal to all processes and wait for 5 seconds
  * sigkill - send the SIGKILL signal to all remaining processes
  * ifdown - bring all network interfaces down
+ * unmount - unmount the overlay mount points and the underlying
+   writeable filesystem
  * sync - run the sync command
 
 

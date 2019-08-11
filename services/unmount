@@ -1,0 +1,9 @@
+description unmount overlay filesystem
+type wait
+target %0
+after sigkill
+before sync
+exec {
+	umount -nli /var/lib /usr /etc
+	umount -nli /cfg/overlay
+}

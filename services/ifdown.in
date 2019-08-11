@@ -2,6 +2,6 @@ description "stop all network interfaces"
 type wait
 target %0
 after sigkill sigterm
-before sync
+before sync unmount
 
 exec "@SCRIPTDIR@/ifdown.sh"
