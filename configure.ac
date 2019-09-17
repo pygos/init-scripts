@@ -1,6 +1,6 @@
 AC_PREREQ([2.60])
 
-AC_INIT([init-scripts], [3], [goliath@infraroot.at], init-scripts)
+AC_INIT([init-scripts], [4], [goliath@infraroot.at], init-scripts)
 AC_CONFIG_MACRO_DIR([m4])
 AM_INIT_AUTOMAKE([foreign subdir-objects dist-xz])
 AM_SILENT_RULES([yes])
